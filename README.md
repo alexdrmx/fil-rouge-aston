@@ -15,7 +15,7 @@ sudo adduser axel sudo
 ```
 **MISE EN PLACE DE L'ENVIRONNEMENT**
 ```shell
-sudo apt -y update  #Mise à jour de l'apt get
+sudo apt -y update  #Mise à jour des applications existantes
 sudo apt -y install git wget #Installation git
 sudo apt -y install htop iotop iftop #Installation de htop
 sudo apt -y install python3 #Installation de Python3
