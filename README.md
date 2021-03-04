@@ -1,4 +1,4 @@
-# fil-rouge-aston
+# FIL ROUGE ASTON
 
 **MISE EN PLACE DES UTILISATEURS ET GROUPES**
 ```shell
@@ -12,4 +12,16 @@ sudo adduser melanie devs
 sudo adduser melanie sudo
 sudo adduser axel devs
 sudo adduser axel sudo
+```
+**MISE EN PLACE DE L'ENVIRONNEMENT**
+```shell
+sudo apt -y update  #Mise à jour de l'apt get
+sudo apt -y install git wget #Installation git
+sudo apt -y install htop iotop iftop #Installation de htop
+sudo apt -y install python3 #Installation de Python3
+sudo apt-get update #Mise à jour de apt-get
+sudo apt-get remove docker docker-engine docker.io #Suppresion de l'ancienne version de docker si existante
+sudo apt install docker.io  #Installation de la dernière version de docker
+sudo systemctl start docker #Mise en route du service docker
+sudo systemctl enable docker
 ```
