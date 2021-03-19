@@ -25,3 +25,7 @@ sudo apt install docker.io  #Installation de la dernière version de docker
 sudo systemctl start docker #Mise en route du service docker
 sudo systemctl enable docker
 ```
+```shell
+ng serve
+```
+
