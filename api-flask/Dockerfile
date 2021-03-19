@@ -2,8 +2,8 @@ FROM python:3
 
 COPY . /api
 
-ADD run.py /
-ADD wrapper.py /
+ADD ./api-flask/run.py /
+ADD ./api-flask/wrapper.py /
 
 RUN pip3 install flask SQLAlchemy pymysql cryptography
 
