@@ -18,6 +18,10 @@ SQLALCHEMY_DATABASE_URI = "mysql+pymysql://{}:{}@{}:{}/{}".format(MYSQL_USER,
                                                                   MYSQL_DB)
 
 engine = create_engine(SQLALCHEMY_DATABASE_URI)
+conn = engine.connect()
+conn.execute("commit")
+conn.execute("create database user")
+conn.close()
 Session = sessionmaker(bind=engine)
 session = Session()
 Base = declarative_base()
