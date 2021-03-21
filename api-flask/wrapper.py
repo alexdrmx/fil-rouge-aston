@@ -3,7 +3,7 @@
 
 from sqlalchemy import create_engine
 from sqlalchemy import Column, Integer, Text
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, session
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
@@ -30,7 +30,6 @@ class User(Base):
 
 
 if __name__ == '__main__':
-
     MYSQL_HOST = "db"
     MYSQL_PORT = 3306
     MYSQL_USER = "root"
@@ -46,3 +45,11 @@ if __name__ == '__main__':
     engine = create_engine(SQLALCHEMY_DATABASE_URI, echo=False)
     Base.metadata.create_all(engine)
 
+
+def get_all_users():
+    try:
+        result = session.query(User).filter_by()
+        return result
+    except Exception as e:
+        print(e)
+        return False
