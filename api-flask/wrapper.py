@@ -30,6 +30,6 @@ class User(Base):
 
 
 if __name__ == '__main__':
-    engine = create_engine('mysql+mysqldb://root:root@localhost/db', echo=False)
+    engine = create_engine('mysql+pymysql://root:root@localhost/db', echo=False)
     Base.metadata.create_all(engine)
 
