@@ -1,49 +1,32 @@
-#! /usr/bin/python3
 # coding: utf-8
+# !/usr/bin/python3
 
-from sqlalchemy import create_engine
-from sqlalchemy import Column, Integer, Text
-from sqlalchemy.orm import sessionmaker, session
+from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import create_engine, Column, String, ForeignKey
 
+MYSQL_HOST = "db"
+MYSQL_PORT = 3306
+MYSQL_USER = "root"
+MYSQL_PWD = "root"
+MYSQL_DB = "users"
+
+SQLALCHEMY_DATABASE_URI = "mysql+pymysql://{}:{}@{}:{}/{}".format(MYSQL_USER,
+                                                                  MYSQL_PWD,
+                                                                  MYSQL_HOST,
+                                                                  MYSQL_PORT,
+                                                                  MYSQL_DB)
+
+engine = create_engine(SQLALCHEMY_DATABASE_URI)
+conn = engine.connect()
+cur = conn.cursor()
+cur.execute("CREATE SCHEMA USERS")
+cur.execute("CREATE TABLE USER(email TEXT, nom TEXT, prenom TEXT, telephone TEXT")
+conn.commit()
+conn.close()
+Session = sessionmaker(bind=engine)
+session = Session()
 Base = declarative_base()
-
-
-class User(Base):
-    __tablename__ = 'user'
-
-    id = Column(Integer, primary_key=True)
-    nom = Column(Text)
-    prenom = Column(Text)
-    email = Column(Text)
-    telephone = Column(Text)
-
-    def __init__(self, id=0, fname='Axel', lname='Bleuse', mail='axel.bleuse@test.com', tel='63517356'):
-        self.id = id
-        self.nom = lname
-        self.prenom = fname
-        self.email = mail
-        self.telephone = tel
-
-    def __str__(self):
-        return self.id + " : " + self.nom + " " + self.prenom + " " + self.email + " " + self.telephone
-
-
-if __name__ == '__main__':
-    MYSQL_HOST = "db"
-    MYSQL_PORT = 3306
-    MYSQL_USER = "root"
-    MYSQL_PWD = "root"
-    MYSQL_DB = "users"
-
-    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://{}:{}@{}:{}/{}".format(MYSQL_USER,
-                                                                      MYSQL_PWD,
-                                                                      MYSQL_HOST,
-                                                                      MYSQL_PORT,
-                                                                      MYSQL_DB)
-
-    engine = create_engine(SQLALCHEMY_DATABASE_URI, echo=False)
-    Base.metadata.create_all(engine)
 
 
 def get_all_users():
@@ -53,3 +36,66 @@ def get_all_users():
     except Exception as e:
         print(e)
         return False
+
+
+def get_user_by_id(User):
+    try:
+        result = session.query(User).filter_by(email=User.email).first()
+        return result
+    except Exception as e:
+        print(e)
+        return False
+
+
+def add_user(email, nom, prenom, telephone):
+    try:
+        user = User(email=email,
+                    nom=nom,
+                    prenom=prenom,
+                    telephone=telephone)
+
+        session.add(user)
+        session.commit()
+        return True
+
+    except Exception as e:
+        print(e)
+        return False
+
+
+class User(Base):
+    """
+    Cette classe correspond à la version objet de notre table user
+    """
+    __tablename__ = 'user'
+    email = Column(String(120), unique=True, nullable=False, primary_key=True)
+    nom = Column(String(80), nullable=False)
+    prenom = Column(String(80), nullable=False)
+    telephone = Column(String(80), nullable=False)
+
+    def delete_user_by_id(self):
+        try:
+            user_to_delete = self.get_user_by_id()
+            if user_to_delete:
+                session.delete(user_to_delete)
+                session.commit()
+                return True
+            else:
+                return False
+        except Exception as e:
+            print(e)
+            return False
+
+    def update_attribute(self, attributes):
+        try:
+            user_to_update = self.get_user_by_id()
+            if user_to_update:
+                for k, v in attributes.items():
+                    setattr(user_to_update, k, v)
+                    session.commit()
+                return user_to_update
+            else:
+                return False
+        except Exception as e:
+            print(e)
+            return False

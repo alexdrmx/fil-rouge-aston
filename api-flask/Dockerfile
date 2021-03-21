@@ -13,5 +13,4 @@ RUN pip install -r requirements.txt
 
 EXPOSE 5000
 
-CMD ["python3", "wrapper.py"]
 CMD ["flask", "run", "--host=0.0.0.0"]
