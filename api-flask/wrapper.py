@@ -30,6 +30,19 @@ class User(Base):
 
 
 if __name__ == '__main__':
-    engine = create_engine('mysql+pymysql://root:root@localhost/db', echo=False)
+
+    MYSQL_HOST = "db"
+    MYSQL_PORT = 3306
+    MYSQL_USER = "root"
+    MYSQL_PWD = "root"
+    MYSQL_DB = "users"
+
+    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://{}:{}@{}:{}/{}".format(MYSQL_USER,
+                                                                      MYSQL_PWD,
+                                                                      MYSQL_HOST,
+                                                                      MYSQL_PORT,
+                                                                      MYSQL_DB)
+
+    engine = create_engine(SQLALCHEMY_DATABASE_URI, echo=False)
     Base.metadata.create_all(engine)
 
