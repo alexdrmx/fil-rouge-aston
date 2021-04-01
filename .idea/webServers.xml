@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="7da08a73-2b34-459d-bae1-853ecf84920e" name="TOVM">
-        <fileTransfer accessType="SFTP" host="170.75.175.198" port="22" sshConfigId="4915d60c-2c87-43b0-8c8b-7b3e56277b45" sshConfig="ubuntu@170.75.175.198:22 password">
+      <webServer id="aae06b59-5137-426b-9fea-0b4f5625b9cf" name="TOVM">
+        <fileTransfer accessType="SFTP" host="192.168.1.59" port="22" sshConfigId="b6576f3c-c187-4190-83c7-5a668e1fe349" sshConfig="axel@192.168.1.59:22 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>

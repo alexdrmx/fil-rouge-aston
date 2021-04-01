@@ -5,7 +5,7 @@
       <paths name="TOVM">
         <serverdata>
           <mappings>
-            <mapping deploy="/home/ubuntu/fil-rouge-aston" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/home/axel/fil-rouge-aston" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

@@ -1,5 +1,6 @@
 ---
-- hosts: "localhost"
+#Creating users and giving them sudo roles
+- hosts: all
   connection: "local"
   vars:
     users:
@@ -12,9 +13,28 @@
         name: "{{ item }}"
         groups: "sudo,www-data"
       with_items: "{{ users }}"
+
+#Install git
+- hosts: all
+  tasks:
     - name: Install git
       apt:
         name: git
-        state: present
+        state: latest
         update_cache: yes
 
+#Install docker via geerlingguy ansible galaxy templates
+- hosts: all
+  vars:
+    pip_install_packages:
+      - name: docker
+  roles:
+    - geerlingguy.pip
+    - geerlingguy.docker
+
+- hosts: all
+  vars:
+    nodejs_npm_global_packages:
+      - name: jslint
+  roles:
+    - geerlingguy.nodejs
