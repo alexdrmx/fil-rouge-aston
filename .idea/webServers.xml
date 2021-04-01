@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="aae06b59-5137-426b-9fea-0b4f5625b9cf" name="TOVM">
-        <fileTransfer accessType="SFTP" host="192.168.1.59" port="22" sshConfigId="b6576f3c-c187-4190-83c7-5a668e1fe349" sshConfig="axel@192.168.1.59:22 password">
+        <fileTransfer accessType="SFTP" host="192.168.1.62" port="22" sshConfigId="b6576f3c-c187-4190-83c7-5a668e1fe349" sshConfig="axel@192.168.1.62:22 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
