@@ -12,4 +12,8 @@ source ./venv/bin/activate
 #Installation d'Ansible et lancement du playbook
 pip3 install wheel
 pip3 install ansible
+ansible-galaxy install geerlingguy.pip
+ansible-galaxy install geerlingguy.docker
+ansible-galaxy install geerlingguy.nodejs
 ansible-playbook -i inventory playbook.yaml
+npm install -g @angular/cli
