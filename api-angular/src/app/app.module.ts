@@ -10,27 +10,23 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import {RouterModule} from '@angular/router';
-import { ListProductsComponent } from './list-products/list-products.component';
-import { RegisterComponent } from './auth/register/register.component';
-import { LoginComponent } from './auth/login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {HomeModule} from './home/home.module';
 import {ListProductsModule} from './list-products/list-products-module';
 import {routes} from './app-routing.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {PanierModule} from './panier/panier.module';
-
+import {AuthModule} from './auth/auth.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    RegisterComponent,
-    LoginComponent,
     PageNotFoundComponent
   ],
     imports: [
         BrowserModule,
+        AuthModule,
         BrowserAnimationsModule,
         LayoutModule,
         MatToolbarModule,
