@@ -1,6 +1,7 @@
 ---
 #Creating users and giving them sudo roles
 - hosts: all
+  become: true
   connection: "local"
   vars:
     users:
@@ -16,6 +17,7 @@
 
 #Install git
 - hosts: all
+  become: true
   tasks:
     - name: Install git
       apt:
@@ -25,6 +27,7 @@
 
 #Install docker via geerlingguy ansible galaxy templates
 - hosts: all
+  become: true
   vars:
     pip_install_packages:
       - name: docker
@@ -33,6 +36,7 @@
     - geerlingguy.docker
 
 - hosts: all
+  become: true
   vars:
     nodejs_npm_global_packages:
       - name: jslint

@@ -17,6 +17,8 @@ import {routes} from './app-routing.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {PanierModule} from './panier/panier.module';
 import {AuthModule} from './auth/auth.module';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import {AuthModule} from './auth/auth.module';
   ],
     imports: [
         BrowserModule,
+        MatMenuModule,
+        MatCardModule,
         AuthModule,
         BrowserAnimationsModule,
         LayoutModule,
