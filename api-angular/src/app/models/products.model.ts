@@ -1,4 +1,4 @@
-export class products{
+export class Products{
   id: number;
   nom: string;
   description: string;
@@ -13,6 +13,6 @@ export class products{
     this.prix = prix;
   }
   static parse(product: any){
-    return new products(product.id,product.nom,product.description,product.qte,product.prix)
+    return new Products(product.id,product.nom,product.description,product.qte,product.prix)
   }
 }

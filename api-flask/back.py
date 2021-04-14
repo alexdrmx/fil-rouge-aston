@@ -45,11 +45,6 @@ class User(db.Model):
 # utilisant la requête http GET
 @app.route('/user', methods=['GET'])
 def show_all_users():
-    # f = open("output.txt", "a")
-    # for u in User.query.all():
-    #     f.write(str(u.toJson()))
-    #     f.write("\n")
-    # f.close()
     l = []
     for u in User.query.all():
         l.append(u.toJson())
@@ -130,10 +125,24 @@ class Product(db.Model):
         self.prix = prix
         self.qte = qte
 
+    def toJson(self):
+        jsonView = [
+            self.id,
+            self.nom,
+            self.description,
+            self.prix,
+            self.qte
+        ]
+        return jsonView
+
 
 @app.route('/products', methods=['GET'])
 def show_all_products():
-    return render_template('show_all_products.html', products=Product.query.all())
+    l = []
+    for u in Product.query.all():
+        l.append(u.toJson())
+    return jsonify(l)
+    # return render_template('show_all_products.html', products=Product.query.all())
 
 
 @app.route('/products/delete', methods=['POST'])
