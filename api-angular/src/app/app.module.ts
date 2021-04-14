@@ -19,6 +19,8 @@ import {PanierModule} from './panier/panier.module';
 import {AuthModule} from './auth/auth.module';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatCardModule} from '@angular/material/card';
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {HttpErrorInterceptorService} from './shared/http-error-interceptor.service'
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import {MatCardModule} from '@angular/material/card';
         AuthModule,
         BrowserAnimationsModule,
         LayoutModule,
+        HttpClientModule,
         MatToolbarModule,
         MatButtonModule,
         MatSidenavModule,
@@ -44,7 +47,8 @@ import {MatCardModule} from '@angular/material/card';
         FlexLayoutModule,
         RouterModule.forRoot(routes)
     ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptorService, multi : true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,12 +1,14 @@
 #! /usr/bin/python3
 # Les imports concernent les librairies associées à flask et concernant la gestion des bases de données
 from flask import Flask, request, flash, url_for, redirect, \
-    render_template
+    render_template, jsonify
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import *
 
 app = Flask(__name__)  # On crée une application flask définie par un nom d'application
 app.config.from_pyfile('back.cfg')  # On affecte à cette application , un fichier de configuration
 db = SQLAlchemy(app)  # On définie un système de bases de données associée à l'application
+CORS(app)
 
 
 # On crée une classe représentant la première table de notre base de données
@@ -27,12 +29,32 @@ class User(db.Model):
         self.telephone = telephone
         self.role = 'membre'
 
+    def toJson(self):
+        jsonView = [
+            self.id,
+            self.nom,
+            self.prenom,
+            self.mail,
+            self.telephone,
+            self.role
+        ]
+        return jsonView
+
 
 # Cette fonction permet de récupérer la totalité de notre table users en
 # utilisant la requête http GET
 @app.route('/user', methods=['GET'])
 def show_all_users():
-    return render_template('show_all_users.html', users=User.query.all())
+    # f = open("output.txt", "a")
+    # for u in User.query.all():
+    #     f.write(str(u.toJson()))
+    #     f.write("\n")
+    # f.close()
+    l = []
+    for u in User.query.all():
+        l.append(u.toJson())
+    return jsonify(l)
+    # return render_template('show_all_users.html', users=User.query.all())
 
 
 @app.route('/user/delete', methods=['POST'])

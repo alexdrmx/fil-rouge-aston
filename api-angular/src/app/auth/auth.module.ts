@@ -5,8 +5,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {AuthRoutingModule} from './auth-routing.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { RegisterComponent } from './register/register.component';
-
-
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
   declarations: [LoginComponent, RegisterComponent],
@@ -14,7 +14,9 @@ import { RegisterComponent } from './register/register.component';
     CommonModule,
     ReactiveFormsModule,
     AuthRoutingModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatProgressSpinnerModule,
+    MatCardModule
   ]
 })
 export class AuthModule { }
