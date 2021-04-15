@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   createForm() {
     this.loginForm = new FormGroup({
       email: new FormControl('', Validators.compose([Validators.required, Validators.email])),
-      password: new FormControl('', Validators.compose([Validators.required, Validators.minLength(6)])),
+      password: new FormControl('', Validators.compose([Validators.required, Validators.minLength(4)])),
     });
   }
 
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
+    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/home';
     this.createForm();
   }
 

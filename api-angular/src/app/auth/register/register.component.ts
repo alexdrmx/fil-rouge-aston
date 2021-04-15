@@ -76,11 +76,11 @@ export class RegisterComponent implements OnInit {
     this.user.email = this.email.value;
     this.user.nom = `${this.user.nom}`;
     this.user.password = this.password.value;
-    console.log(this.user);
     const pwd = this.password.value;
     this.authService.onRegister({user: this.user, pwd: this.password.value})
       .subscribe(data => {
-          this.router.navigate(['/']);
+          console.log('ça marche')
+          this.router.navigate(['/home']);
         },
         error => {
           console.log('erreur en retour : ', error);

@@ -20,18 +20,18 @@ const httpOptions = {
 })
 export class AuthService {
   private readonly apiUrl = environment.apiUrl;
-  private registerUrl = this.apiUrl + 'register';
-  private loginUrl = this.apiUrl + 'login';
-  private currentPlayerSubject: BehaviorSubject<User>;
-  public currentPlayer: Observable<User>;
+  private registerUrl = this.apiUrl + 'user/register';
+  private loginUrl = this.apiUrl + 'user/login';
+  private currentUserSubject: BehaviorSubject<User>;
+  public currentUser: Observable<User>;
 
   constructor(private http: HttpClient) {
-    this.currentPlayerSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentPlayer')));
-    this.currentPlayer = this.currentPlayerSubject.asObservable();
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentPlayer')));
+    this.currentUser = this.currentUserSubject.asObservable();
   }
 
   public get currentPlayerValue(): User {
-    return this.currentPlayerSubject.value;
+    return this.currentUserSubject.value;
   }
 
   onLogin(user: any): Observable<{} | User> {
@@ -43,9 +43,9 @@ export class AuthService {
           console.log('le retour', data);
         }),
         map((data: any) => {
-          const player = User.parse(data.data.player);
-          //this.storeToken(data, player);
-          return player;
+          let utilisateur;
+          utilisateur = User.parse(data);
+          return utilisateur;
         }));
   }
 
@@ -58,12 +58,12 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('currentPlayer');
-    this.currentPlayerSubject.next(null);
+    this.currentUserSubject.next(null);
   }
 
   onRegister(valeur: { user: User, pwd: string }) {
     const request = JSON.stringify({
-      name: valeur.user.nom, email: valeur.user.email, password: valeur.pwd
+      nom: valeur.user.nom,prenom: valeur.user.prenom, email: valeur.user.email,telephone: valeur.user.telephone, password: valeur.pwd
     });
 
     return this.http.post(this.registerUrl, request, httpOptions)
@@ -72,9 +72,9 @@ export class AuthService {
           console.log('le retour du register', data);
         }),
         map((data: any) => {
-          const user = User.parse(data.data.player);
-          //this.storeToken(data, player);
-          return user;
+          let utilisateur;
+          utilisateur = User.parse(data)
+          return utilisateur;
         }));
   }
 }

@@ -71,25 +71,39 @@ def show_new_user():
 
 
 # Cette fonction permet de créer une nouvelle entité user dans la table users (on utilise la requête http POST)
-@app.route('/user/new', methods=['GET', 'POST'])
+@app.route('/user/register', methods=['GET', 'POST'])
 def add_new_user():
-    if not request.form.get('nom', False):
-        flash('Le nom est requis', 'error')
-    elif not request.form.get('prenom', False):
-        flash('Le prenom est requis', 'error')
-    elif not request.form.get('mail', False):
-        flash('Le mail est requis', 'error')
-    elif not request.form.get('password', False):
-        flash('Mot de passe requis !', 'error')
-    elif not request.form.get('telephone', False):
-        flash('mettre le n° tel est recommandé', 'warning')
-    else:
-        user = User(request.form['nom'], request.form['prenom'], request.form['mail'], request.form['telephone'], request.form['password'])
+    # if not request.form.get('nom', False):
+    #    flash('Le nom est requis', 'error')
+    # elif not request.form.get('prenom', False):
+    #    flash('Le prenom est requis', 'error')
+    # elif not request.form.get('mail', False):
+    #    flash('Le mail est requis', 'error')
+    # elif not request.form.get('password', False):
+    #    flash('Mot de passe requis !', 'error')
+    # elif not request.form.get('telephone', False):
+    #    flash('mettre le n° tel est recommandé', 'warning')
+    # else:
+    #    user = User(request.form['nom'], request.form['prenom'], request.form['mail'], request.form['telephone'], request.form['password'])
+    #    db.session.add(user)
+    #    db.session.commit()
+    #    flash(u'Compte bien créé !')
+    #    return redirect(url_for('show_all_users'))
+    # return render_template('add_new_user.html')
+    if request.method == 'POST':
+        newuser = request.get_json()
+        user = User(newuser['nom'], newuser['prenom'], newuser['email'], newuser['telephone'], newuser['password'])
         db.session.add(user)
         db.session.commit()
-        flash(u'Compte bien créé !')
-        return redirect(url_for('show_all_users'))
-    return render_template('add_new_user.html')
+        return newuser
+
+
+@app.route('/user/login', methods=['POST'])
+def loginUser():
+    if request.method == 'GET':
+        getuser = request.get_json()
+        user = User.query.filter(getuser['email'], getuser['password']).first()
+        return user
 
 
 @app.route('/user/update/<identifier>', methods=['GET'])
