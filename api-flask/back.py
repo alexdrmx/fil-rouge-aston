@@ -19,14 +19,16 @@ class User(db.Model):
     prenom = db.Column('prenom', db.String(80))
     mail = db.Column('mail', db.String(100))
     telephone = db.Column('telephone', db.String(10))
+    password = db.Column('password', db.String(20))
     role = db.Column('role', db.Enum('admin', 'membre'))
 
     # On définit un constructeur en donnant un rôle par défaut
-    def __init__(self, nom, prenom, mail, telephone):
+    def __init__(self, nom, prenom, mail, telephone, password):
         self.nom = nom
         self.prenom = prenom
         self.mail = mail
         self.telephone = telephone
+        self.password = password
         self.role = 'membre'
 
     def toJson(self):
@@ -36,6 +38,7 @@ class User(db.Model):
             self.prenom,
             self.mail,
             self.telephone,
+            self.password,
             self.role
         ]
         return jsonView
@@ -76,10 +79,12 @@ def add_new_user():
         flash('Le prenom est requis', 'error')
     elif not request.form.get('mail', False):
         flash('Le mail est requis', 'error')
+    elif not request.form.get('password', False):
+        flash('Mot de passe requis !', 'error')
     elif not request.form.get('telephone', False):
         flash('mettre le n° tel est recommandé', 'warning')
     else:
-        user = User(request.form['nom'], request.form['prenom'], request.form['mail'], request.form['telephone'])
+        user = User(request.form['nom'], request.form['prenom'], request.form['mail'], request.form['telephone'], request.form['password'])
         db.session.add(user)
         db.session.commit()
         flash(u'Compte bien créé !')

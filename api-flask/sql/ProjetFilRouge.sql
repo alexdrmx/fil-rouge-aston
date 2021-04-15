@@ -59,16 +59,17 @@ CREATE TABLE `users` (
   `prenom` varchar(80) COLLATE latin1_bin NOT NULL,
   `mail` varchar(100) COLLATE latin1_bin NOT NULL,
   `telephone` varchar(10) COLLATE latin1_bin DEFAULT NULL,
-  `role` enum('admin','membre') COLLATE latin1_bin DEFAULT NULL
+  `role` enum('admin','membre') COLLATE latin1_bin DEFAULT NULL,
+  `password` varchar(20) COLLATE latin1_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 --
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `nom`, `prenom`, `mail`, `telephone`, `role`) VALUES
-(1, 'Bleuse', 'axel', 'axel.bleuse@test.com', '0687563421', 'Membre'),
-(2, 'root', 'root', 'root@test.com', '0345678521', 'Admin');
+INSERT INTO `users` (`id`, `nom`, `prenom`, `mail`, `telephone`, `role`, `password`) VALUES
+(1, 'Bleuse', 'axel', 'axel.bleuse@test.com', '0687563421', 'Membre', 'root'),
+(2, 'root', 'root', 'root@test.com', '0345678521', 'Admin', 'aled');
 
 --
 -- Index pour les tables déchargées
