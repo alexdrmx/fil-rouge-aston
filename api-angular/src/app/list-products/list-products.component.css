@@ -3,7 +3,7 @@
 h2 {
 
   color:#3f51b5;
-  margin-left: 20px;
+  margin-left: 350px;
   margin-bottom: 50px;
 
 }
@@ -18,7 +18,7 @@ select {
   padding-bottom: 6px;
   padding-left: 10px;
   padding-right: 10px;
-  margin-left: 20px;
+  margin-left: 350px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -51,14 +51,14 @@ button {
 .product {
 
   height: 150px;
-  margin-left: 20px;
+  margin-left: 350px;
   margin-top: 20px;
-  margin-right: 20px;
+  margin-right: 350px;
   box-shadow: 6px 3px 5px 0px rgba(0,0,0,0.14);
   -webkit-box-shadow: 6px 3px 5px 0px rgba(0,0,0,0.14);
   -moz-box-shadow: 6px 3px 5px 0px rgba(0,0,0,0.14);
   display: flex;
-  flex-direction: row;
+  justify-content: space-around;
   border-radius: 5px;
 
 }

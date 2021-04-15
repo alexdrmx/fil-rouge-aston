@@ -1,0 +1,118 @@
+h1 {
+
+  color: #3f51b5;
+  padding-left: 350px;
+
+}
+
+/* Produits */
+
+.product {
+
+  height: 150px;
+  margin-left: 350px;
+  margin-top: 20px;
+  margin-right: 350px;
+  box-shadow: 6px 3px 5px 0px rgba(0,0,0,0.14);
+  -webkit-box-shadow: 6px 3px 5px 0px rgba(0,0,0,0.14);
+  -moz-box-shadow: 6px 3px 5px 0px rgba(0,0,0,0.14);
+  display: flex;
+  justify-content: space-around;
+  border-radius: 5px;
+
+}
+
+.leftProduct {
+
+  height: 100px;
+  width: 100px;
+  padding-left: 20px;
+  padding-top: 25px;
+
+}
+
+.centerProduct {
+
+  width: 650px;
+  padding-left: 15px;
+  margin-left: 15px;
+
+}
+
+input {
+
+  height: 30px;
+  width: 100px;
+
+}
+
+.price{
+
+  margin-top: 15px;
+
+}
+
+.rightProduct {
+
+  display:flex;
+  flex-direction: column;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+
+}
+
+.imgR {
+
+ height: 30px;
+ width: 30px;
+
+}
+
+/* Bouton valider commande */
+
+.btn{
+
+  position: absolute;
+  right: 350px;
+  display: block;
+  color: #3f51b5;
+  font-size: 2.2vh;
+  font-family: sans-serif;
+  text-decoration: none;
+  margin: 30px 0;
+  border: 2px solid #3f51b5;
+  padding: 1.5vh 2vh;
+  overflow: hidden;
+  transition:1s all ease;
+  text-transform: uppercase;
+  border-radius: 15px;
+
+}
+
+.btn::before{
+
+  background: #3f51b5;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  z-index:-1;
+  transition: all 0.6s ease;
+
+}
+
+.btn:hover::before{
+
+  height: 500%;
+
+}
+
+.btn:hover{
+
+  color: black;
+
+}
