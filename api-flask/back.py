@@ -32,15 +32,15 @@ class User(db.Model):
         self.role = 'membre'
 
     def toJson(self):
-        jsonView = [
-            self.id,
-            self.nom,
-            self.prenom,
-            self.mail,
-            self.telephone,
-            self.password,
-            self.role
-        ]
+        jsonView = {
+            "id": self.id,
+            "nom": self.nom,
+            "prenom": self.prenom,
+            "mail": self.mail,
+            "telephone": self.telephone,
+            "password": self.password,
+            "role": self.role
+        }
         return jsonView
 
 
@@ -131,13 +131,13 @@ class Product(db.Model):
         self.qte = qte
 
     def toJson(self):
-        jsonView = [
-            self.id,
-            self.nom,
-            self.description,
-            self.prix,
-            self.qte
-        ]
+        jsonView = {
+            "id": self.id,
+            "nom": self.nom,
+            "description": self.description,
+            "prix": self.prix,
+            "qte": self.qte
+        }
         return jsonView
 
 

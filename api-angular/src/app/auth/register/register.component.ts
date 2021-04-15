@@ -32,8 +32,8 @@ export class RegisterComponent implements OnInit {
 
   createForm() {
     this.registerForm = new FormGroup({
-      nom: new FormControl('', [Validators.required, Validators.minLength(6)]),
-      prenom: new FormControl('', [Validators.required, Validators.minLength(6)]),
+      nom: new FormControl('', [Validators.required, Validators.minLength(4)]),
+      prenom: new FormControl('', [Validators.required, Validators.minLength(4)]),
       telephone: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
       email: new FormControl('', [Validators.required, Validators.email]),
       pwd: new FormGroup({
@@ -75,6 +75,8 @@ export class RegisterComponent implements OnInit {
     this.user.telephone = this.telephone.value;
     this.user.email = this.email.value;
     this.user.nom = `${this.user.nom}`;
+    this.user.password = this.password.value;
+    console.log(this.user);
     const pwd = this.password.value;
     this.authService.onRegister({user: this.user, pwd: this.password.value})
       .subscribe(data => {
