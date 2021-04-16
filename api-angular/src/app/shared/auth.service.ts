@@ -30,7 +30,7 @@ export class AuthService {
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
-  public get currentPlayerValue(): User {
+  public get currentUserValue(): User {
     return this.currentUserSubject.value;
   }
 
@@ -44,17 +44,13 @@ export class AuthService {
         }),
         map((data: any) => {
           let utilisateur;
-          utilisateur = User.parse(data);
+          utilisateur = User.parse(data[0]);
+          console.log(this.currentUser);
+          localStorage.setItem('currentUser', JSON.stringify(utilisateur));
+          this.currentUserSubject.next(utilisateur);
           return utilisateur;
         }));
   }
-
-  /*storeToken(data: any, player: User) {
-    User.accessToken = data.data.token;
-    localStorage.setItem('currentPlayer', JSON.stringify(player));
-    console.log('Joueur : ', player);
-    this.currentPlayerSubject.next(player);
-  }*/
 
   logout() {
     localStorage.removeItem('currentPlayer');
@@ -65,7 +61,6 @@ export class AuthService {
     const request = JSON.stringify({
       nom: valeur.user.nom,prenom: valeur.user.prenom, email: valeur.user.email,telephone: valeur.user.telephone, password: valeur.pwd
     });
-
     return this.http.post(this.registerUrl, request, httpOptions)
       .pipe(
         tap(data => {

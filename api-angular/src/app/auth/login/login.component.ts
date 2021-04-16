@@ -43,10 +43,12 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.loginForm.value)
     this.authService.onLogin(this.loginForm.value)
       .pipe(first())
       .subscribe(
         data => {
+          console.log("ça marche")
           this.router.navigate([this.returnUrl]);
         },
         error => {

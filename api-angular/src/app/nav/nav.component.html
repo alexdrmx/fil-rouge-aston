@@ -4,9 +4,20 @@
   <a mat-button routerLink="/products"><mat-icon>list</mat-icon> Liste des produits</a>
   <a mat-button routerLink="/panier"><mat-icon>add_shopping_cart</mat-icon> Panier</a>
 
-<span class="flex"></span>
-
+  <span class="flex"> </span>
+  <div *ngIf="currentUser; else noconnected">
+    <a mat-button [mat-menu-trigger-for]="menu">
+      {{currentUser.nom}} <mat-icon>more_vert</mat-icon>
+    </a>
+    <mat-menu xPosition="before" #menu="matMenu">
+      <button mat-menu-item [routerLink]="['user', currentUser.id]">
+        Mon profil
+      </button>
+      <button mat-menu-item routerLink="/login" (click)="logout()">Déconnexion</button>
+    </mat-menu>
+  </div>
+  <ng-template #noconnected>
     <a mat-button routerLink="/login"><mat-icon>exit_to_app</mat-icon>Connexion</a>
-    <a mat-button routerLink="/register"><mat-icon>edit</mat-icon>Inscription</a>
-
+    <a mat-button routerLink="/register"><mat-icon>edit</mat-icon>S'inscrire</a>
+  </ng-template>
 </mat-toolbar>

@@ -4,6 +4,7 @@ from flask import Flask, request, flash, url_for, redirect, \
     render_template, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import *
+from sqlalchemy import text, and_
 
 app = Flask(__name__)  # On crée une application flask définie par un nom d'application
 app.config.from_pyfile('back.cfg')  # On affecte à cette application , un fichier de configuration
@@ -100,10 +101,15 @@ def add_new_user():
 
 @app.route('/user/login', methods=['POST'])
 def loginUser():
-    if request.method == 'GET':
+    if request.method == 'POST':
         getuser = request.get_json()
-        user = User.query.filter(getuser['email'], getuser['password']).first()
-        return user
+        user = User.query.filter(and_(
+            User.mail == getuser['email'],
+            User.password == getuser['password']
+        )).first()
+        l = []
+        l.append(user.toJson())
+        return jsonify(l)
 
 
 @app.route('/user/update/<identifier>', methods=['GET'])
