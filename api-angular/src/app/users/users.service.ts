@@ -25,4 +25,13 @@ export class UsersService{
         })
       );
   }
+
+  getUser(id: number): Observable<User> {
+    const url = `${this.userUrl}/${id} `;
+    return this.http.get<Observable<{}>>(url)
+      .pipe(
+        tap((rep: any) => console.log(rep)),
+        map(p => User.parse(p.data)),
+      );
+  }
 }

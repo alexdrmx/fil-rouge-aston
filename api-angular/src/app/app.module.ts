@@ -20,19 +20,23 @@ import {AuthModule} from './auth/auth.module';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatCardModule} from '@angular/material/card';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {HttpErrorInterceptorService} from './shared/http-error-interceptor.service'
+import {HttpErrorInterceptorService} from './shared/http-error-interceptor.service';
+import {UsersModule} from "./users/users.module";
+import {ToastrModule} from "ngx-toastr";
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
   ],
     imports: [
         BrowserModule,
+        ToastrModule,
         MatMenuModule,
         MatCardModule,
         AuthModule,
+        UsersModule,
         BrowserAnimationsModule,
         LayoutModule,
         HttpClientModule,

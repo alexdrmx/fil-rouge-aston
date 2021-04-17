@@ -3,13 +3,12 @@
 #(permettant la visualisation globale de la BDD) ainsi que notre application flask .
 
 version: '3'
-
 networks:
   lan_network:
     driver: bridge
-
 services:
   pfrapplication:
+      restart: always
       hostname: back
       build: .
       ports:
@@ -22,6 +21,7 @@ services:
         -  lan_network
 
   phpmyadmin:
+    restart: always
     hostname: phpmyadmin
     image: nazarpc/phpmyadmin
     links:
@@ -37,13 +37,15 @@ services:
       - lan_network
 
   dbm:
+    restart: always
     hostname: mysql
-    image: astondevops/docker-mysql-5.6
+    image: mysql:5.6
     environment:
       MYSQL_ROOT_PASSWORD: password
     volumes:
       - /var/log/mysql-db:/var/log/mysql
       - /var/lib/mysql:/var/lib/mysql
+      - ./sql/:/docker-entrypoint-initdb.d
     ports:
       - 3306:3306
     networks:

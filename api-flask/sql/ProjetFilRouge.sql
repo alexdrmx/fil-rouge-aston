@@ -6,6 +6,8 @@
 -- Généré le : mer. 24 mars 2021 à 23:11
 -- Version du serveur :  5.6.38-log
 -- Version de PHP : 7.4.4
+CREATE DATABASE IF NOT EXISTS ProjetFilRouge;
+
 USE ProjetFilRouge;
 
 DROP TABLE IF EXISTS users CASCADE;

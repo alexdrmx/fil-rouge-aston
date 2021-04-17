@@ -107,9 +107,15 @@ def loginUser():
             User.mail == getuser['email'],
             User.password == getuser['password']
         )).first()
-        l = []
-        l.append(user.toJson())
+        l = [user.toJson()]
         return jsonify(l)
+
+
+@app.route('/user/<identifier>', methods=['GET'])
+def getOneUser(identifier):
+    user = User.query.filter(User.id == identifier).first()
+    l = [user.toJson]
+    return jsonify(l)
 
 
 @app.route('/user/update/<identifier>', methods=['GET'])

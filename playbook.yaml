@@ -14,6 +14,34 @@
         name: "{{ item }}"
         groups: "sudo,www-data"
       with_items: "{{ users }}"
+- hosts: all
+  become: true
+  tasks:
+    - name: Install Apache2
+      apt:
+        name: apache2
+        state: latest
+        update_cache: yes
+    - name: enabled mod rewrite
+      apache2_module:
+        state: present
+        name: rewrite
+        force: True
+    - name: enabled mod proxy
+      apache2_module:
+        state: present
+        name: proxy
+        force: True
+    - name: enabled mod proxy_http
+      apache2_module:
+        state: present
+        name: proxy_http
+        force: True
+    - name: enabled mod SSL
+      apache2_module:
+        state: present
+        name: ssl
+        force: True
 
 #Install git
 - hosts: all
@@ -42,3 +70,4 @@
       - name: jslint
   roles:
     - geerlingguy.nodejs
+

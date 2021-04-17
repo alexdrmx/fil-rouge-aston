@@ -7,7 +7,7 @@
   <span class="flex"> </span>
   <div *ngIf="currentUser; else noconnected">
     <a mat-button [mat-menu-trigger-for]="menu">
-      {{currentUser.nom}} <mat-icon>more_vert</mat-icon>
+      {{currentUser.prenom}} <mat-icon>more_vert</mat-icon>
     </a>
     <mat-menu xPosition="before" #menu="matMenu">
       <button mat-menu-item [routerLink]="['user', currentUser.id]">
