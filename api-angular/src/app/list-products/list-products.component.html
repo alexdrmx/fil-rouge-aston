@@ -17,41 +17,22 @@
   <button>Search</button>
 </div>
 
-<section class="product">
+<section class="product" *ngFor="let product of products">
 
   <div>
     <img class="leftProduct" src="../../assets/book1.png">
   </div>
 
   <div class="centerProduct">
-    <h3>A title</h3>
-    <p>Amicitiam te et haerebis venias perferenda agnitus hortatore si conteres haerebis dederis stipite defueris haerebis incognitus hesterno adsiduitati tot in adsiduitati defueris dederis venias ut unde discesseris reverteris summittendo unde.</p>
+    <h3>{{product.nom}}</h3>
+    <p>{{product.description}}</p>
   </div>
 
   <div class="rightProduct">
-    <p>Price </p>
+    <p>{{product.prix}}€</p>
     <br>
-    <img class="imgR" src="../../assets/shopping.png" href="#"/>
+    <a mat-button routerLink="#"><mat-icon>add_shopping_cart</mat-icon></a>
   </div>
 </section>
-
-<section class="product">
-
-  <div>
-    <img class="leftProduct" src="../../assets/book1.png">
-  </div>
-
-  <div class="centerProduct">
-    <h3>A title</h3>
-    <p>Amicitiam te et haerebis venias perferenda agnitus hortatore si conteres haerebis dederis stipite defueris haerebis incognitus hesterno adsiduitati tot in adsiduitati defueris dederis venias ut unde discesseris reverteris summittendo unde.</p>
-  </div>
-
-  <div class="rightProduct">
-    <p>Price </p>
-    <br>
-    <img class="imgR" src="../../assets/shopping.png" href="#"/>
-  </div>
-</section>
-
 </body>
 </html>
