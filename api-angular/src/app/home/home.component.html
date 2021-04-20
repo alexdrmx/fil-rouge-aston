@@ -12,22 +12,32 @@
       <div>
         <h1>Derniers articles ajoutés : </h1>
       </div>
-
+      <div class="text">
+        <div class="text-under">
+          <p>{{products[length-3].nom}}</p>
+        </div>
+        <div class="text-under">
+          <p>{{products[length-2].nom}}</p>
+        </div>
+        <div class="text-under">
+          <p>{{products[length-1].nom}}</p>
+        </div>
+      </div>
       <div class="dernierArticles">
-
-        <div class="newArticle"><img src="../../assets/book1.png"></div>
-        <div class="newArticle"><img src="../../assets/book2.png"></div>
-        <div class="newArticle"><img src="../../assets/book1.png"></div>
-
+        <div class="newArticle">
+          <img src="../../assets/book1.png">
+        </div>
+        <div class="newArticle">
+          <img src="../../assets/book2.png">
+        </div>
+        <div class="newArticle">
+          <img src="../../assets/book1.png">
+        </div>
       </div>
 
     <a class="btn" mat-button routerLink="/products">Voir nos produits</a>
   </section>
+<br>
 
-  <footer>
-    <a class="footer" href="">Contact</a>
-    <a class="footer" href="">FAQ</a>
-    <a class="footer" href="">Mentions Légales</a>
-  </footer>
 
 </body>

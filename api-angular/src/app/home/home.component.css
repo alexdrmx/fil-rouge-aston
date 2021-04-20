@@ -46,12 +46,28 @@ h1{
 
 }
 
+.text{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background: none;
+
+}
+
+.text-under{
+  height: 17vh;
+  width: 17vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
 .newArticle{
 
   height: 30vh;
   width: 30vh;
-  background-repeat: no-repeat;
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   -webkit-box-shadow: -3px 3px 25px -6px rgba(0,0,0,0.75);
