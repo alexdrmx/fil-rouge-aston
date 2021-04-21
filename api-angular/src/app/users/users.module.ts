@@ -10,9 +10,11 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {ToastrModule} from "ngx-toastr";
+import { FormUsersComponent } from './form-users/form-users.component';
+import { EditUsersComponent } from './edit-users/edit-users.component';
 
 @NgModule({
-  declarations: [UsersDetailsComponent],
+  declarations: [UsersDetailsComponent, FormUsersComponent, EditUsersComponent],
   imports: [
     CommonModule,
     ToastrModule.forRoot(),

@@ -34,4 +34,22 @@ export class UsersService{
         map(p => User.parse(p.data)),
       );
   }
+
+    updateUser(user: User, pwd: string): Observable<User> {
+    const url = `${this.userUrl}/${user.id} `;
+    const formData: FormData = new FormData();
+    formData.append('name', user.nom);
+    formData.append('bio', user.prenom);
+    formData.append('bestScore', user.email);
+    formData.append('email', user.telephone);
+    if (pwd) {
+      formData.append('password', pwd);
+    }
+    formData.append('_method', 'PUT');
+    return this.http.post<Observable<User>>(url, formData)
+      .pipe(
+        tap((rep: any) => console.log(rep)),
+        map(p => User.parse(p.data)),
+      );
+  }
 }
