@@ -46,8 +46,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `nom`, `description`, `qte`, `prix`) VALUES
-(1, 'Aspirateur', 'Ceci est un bel aspirateur', 652, 199.99),
-(2, 'Lave-vaisselle', 'Ceci est un beau lave-vaisselle', 74563, 599.99);
+(1, 'Naruto', 'Péripéties du ninja le plus déprécié de konoha', 652, 6.90),
+(2, 'One piece', 'Histoire de la quête du one piece', 74563, 6.90),
+(3, 'Dragon Ball Super', 'Quête du pouvoir pour des habitants du planête lointaine', 46362, 6.90);
 
 -- --------------------------------------------------------
 

@@ -11,15 +11,15 @@
   </mat-card>
 </div>
 
-<div fxLayout="row" fxLayoutAlign="space-around center" *ngIf="user">
-  <mat-card fxFlex="80">
+<div fxLayout="row" fxLayoutAlign="center center" class="card">
+    <mat-card fxFlex="50">
     <mat-card-header>
       <mat-card-title>
         <p>Profil de {{user.prenom}} {{user.nom}} </p>
       </mat-card-title>
-      <mat-card-subtitle><p> Adresse e-mail : {{user.email }}</p></mat-card-subtitle>
-      <mat-card-subtitle><p> Téléphone : {{user.telephone }}</p></mat-card-subtitle>
-      <mat-card-subtitle><p> Rôle : {{user.role }}</p></mat-card-subtitle>
+      <mat-card-subtitle><p> Adresse e-mail : {{ user.email}}</p></mat-card-subtitle>
+      <mat-card-subtitle><p> Téléphone : {{ user.telephone }}</p></mat-card-subtitle>
+      <mat-card-subtitle><p> Rôle : {{ user.role }}</p></mat-card-subtitle>
     </mat-card-header>
     <mat-card-actions fxLayout="row" fxLayoutAlign="center space-around">
       <button mat-raised-button>
@@ -28,3 +28,4 @@
     </mat-card-actions>
   </mat-card>
 </div>
+

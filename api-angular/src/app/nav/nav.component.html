@@ -10,7 +10,7 @@
       {{currentUser.prenom}} <mat-icon>more_vert</mat-icon>
     </a>
     <mat-menu xPosition="before" #menu="matMenu">
-      <button mat-menu-item [routerLink]="['user', currentUser.id]">
+      <button mat-menu-item [routerLink]="['/user', currentUser.id]">
         Mon profil
       </button>
       <button mat-menu-item routerLink="/login" (click)="logout()">Déconnexion</button>

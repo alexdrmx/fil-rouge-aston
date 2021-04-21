@@ -17,9 +17,7 @@ export class ListProductsComponent implements OnInit {
     this.loading=true;
     this.service.getProducts().subscribe(products => {
       this.products = products;
-
       console.log(products);
-
       this.loading = false
     });
   }

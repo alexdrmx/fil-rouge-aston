@@ -15,7 +15,7 @@ import {ToastrModule} from "ngx-toastr";
   declarations: [UsersDetailsComponent],
   imports: [
     CommonModule,
-    ToastrModule,
+    ToastrModule.forRoot(),
     ReactiveFormsModule,
     UsersRoutingModule,
     FlexLayoutModule,
