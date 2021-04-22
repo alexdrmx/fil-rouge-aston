@@ -2,13 +2,6 @@
 <project version="4">
   <component name="PublishConfigData" serverName="TOVM" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
-      <paths name="TOVM">
-        <serverdata>
-          <mappings>
-            <mapping deploy="/home/axel/fil-rouge-aston" local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
       <paths name="ubuntu">
         <serverdata>
           <mappings>
