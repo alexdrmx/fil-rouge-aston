@@ -12,6 +12,7 @@
     - name: Create user accounts and add users to groups
       user:
         name: "{{ item }}"
+
         groups: "sudo,www-data"
       with_items: "{{ users }}"
 - hosts: all
