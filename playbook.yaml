@@ -10,7 +10,7 @@
       - Melanie
       - Axel
   tasks:
-    - name: Create user accounts and add users to groups
+    - name: new version
       user:
         name: alexandre
         password: "{{ password | password_hash('sha512') }}"
