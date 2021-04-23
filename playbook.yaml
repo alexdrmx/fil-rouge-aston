@@ -2,18 +2,20 @@
 #Creating users and giving them sudo roles
 - hosts: all
   become: true
-  connection: "local"
+  #connection: "local"
   vars:
+    password: '12345678'
     users:
       - Alexandre
       - Melanie
       - Axel
   tasks:
-    - name: Create user accounts and add users to groups
+    - name: new version
       user:
-        name: "{{ item }}"
-        groups: "sudo,www-data"
-      with_items: "{{ users }}"
+        name: alexandre
+        password: "{{ password | password_hash('sha512') }}"
+        groups: sudo,www-data
+        state: present
 - hosts: all
   become: true
   tasks:
@@ -54,20 +56,20 @@
         update_cache: yes
 
 #Install docker via geerlingguy ansible galaxy templates
-- hosts: all
-  become: true
-  vars:
-    pip_install_packages:
-      - name: docker
-  roles:
-    - geerlingguy.pip
-    - geerlingguy.docker
+#- hosts: all
+ # become: true
+  #vars:
+   # pip_install_packages:
+    #  - name: docker
+  #roles:
+   # - geerlingguy.pip
+    #- geerlingguy.docker
 
-- hosts: all
-  become: true
-  vars:
-    nodejs_npm_global_packages:
-      - name: jslint
-  roles:
-    - geerlingguy.nodejs
+#- hosts: all
+ # become: true
+  #vars:
+   # nodejs_npm_global_packages:
+    #  - name: jslint
+  #roles:
+   # - geerlingguy.nodejs
 
