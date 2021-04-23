@@ -31,7 +31,7 @@
   <div class="rightProduct">
     <p>{{product.prix}}€</p>
     <br>
-    <a mat-button routerLink="#"><mat-icon>add_shopping_cart</mat-icon></a>
+    <button mat-raised-button (click)="addToCart(product)" style="color: aliceblue"><mat-icon>add_shopping_cart</mat-icon></button>
   </div>
 </section>
 </body>

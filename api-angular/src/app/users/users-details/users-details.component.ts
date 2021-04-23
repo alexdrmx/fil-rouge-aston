@@ -28,7 +28,7 @@ export class UsersDetailsComponent implements OnInit {
       this.users = users;
       console.log(users);
       this.user = users[this.id-1];
-      console.log(this.user);
+      console.log(this.user.email);
       this.loading = false;
     },
       error => {

@@ -37,7 +37,7 @@ class User(db.Model):
             "id": self.id,
             "nom": self.nom,
             "prenom": self.prenom,
-            "mail": self.mail,
+            "email": self.mail,
             "telephone": self.telephone,
             "password": self.password,
             "role": self.role
