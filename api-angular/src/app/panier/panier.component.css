@@ -34,6 +34,7 @@ h1 {
 .centerProduct {
 
   width: 650px;
+  padding-top: 32px;
   padding-left: 15px;
   margin-left: 15px;
 
@@ -48,7 +49,7 @@ input {
 
 .price{
 
-  margin-top: 15px;
+  padding-top: 35px;
 
 }
 

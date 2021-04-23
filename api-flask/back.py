@@ -111,20 +111,13 @@ def loginUser():
         return jsonify(l)
 
 
-@app.route('/user/<identifier>', methods=['GET'])
-def getOneUser(identifier):
-    user = User.query.filter(User.id == identifier).first()
-    l = [user.toJson]
-    return jsonify(l)
-
-
 @app.route('/user/update/<identifier>', methods=['GET'])
 def show_update_user(identifier):
     return render_template('update_user.html', user=User.query.get(identifier))
 
 
 # Cette fonction permet la modification d'une donnée d'une entitée dans la table users
-@app.route('/user/update/<identifier>', methods=['POST'])
+@app.route('/user/<identifier>', methods=['POST'])
 def update_user(identifier):
     user = User.query.get(identifier)
     nom = request.form.get("nom")

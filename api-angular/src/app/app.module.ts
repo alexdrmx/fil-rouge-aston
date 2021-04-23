@@ -23,12 +23,14 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {HttpErrorInterceptorService} from './shared/http-error-interceptor.service';
 import {UsersModule} from "./users/users.module";
 import {ToastrModule} from "ngx-toastr";
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     PageNotFoundComponent,
+    FooterComponent,
   ],
     imports: [
         BrowserModule,

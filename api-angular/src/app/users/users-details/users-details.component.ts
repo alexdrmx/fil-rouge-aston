@@ -12,6 +12,8 @@ import {ToastrService} from 'ngx-toastr';
 export class UsersDetailsComponent implements OnInit {
   loading = false;
   user: User;
+  id: number;
+  users: User[];
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -20,22 +22,24 @@ export class UsersDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    const id = +this.route.snapshot.paramMap.get('id');
+    this.id = +this.route.snapshot.paramMap.get('id');
     this.loading = true;
-    this.service.getUser(id).subscribe(rep => {
-        console.log(rep);
-        this.user = rep;
-        this.loading = false;
-      },
+    this.service.getUsers().subscribe(users => {
+      this.users = users;
+      console.log(users);
+      this.user = users[this.id-1];
+      console.log(this.user);
+      this.loading = false;
+    },
       error => {
         this.loading = false;
-        /*this.toastr.error(`${error} failed: ${error.message}`, 'Error')
+        this.toastr.error(`${error} failed: ${error.message}`, 'Error')
           .onHidden
-          .subscribe(t => this.router.navigate(['./home']));*/
-      });
+          .subscribe(t => this.router.navigate(['/home']));
+    });
   }
 
-  editPlayer() {
+  editUser() {
     this.router.navigate(['./user/edit', this.user.id]);
   }
 

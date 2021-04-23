@@ -10,19 +10,27 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {ToastrModule} from "ngx-toastr";
+import { FormUsersComponent } from './form-users/form-users.component';
+import { EditUsersComponent } from './edit-users/edit-users.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
-  declarations: [UsersDetailsComponent],
+  declarations: [UsersDetailsComponent, FormUsersComponent, EditUsersComponent],
   imports: [
     CommonModule,
-    ToastrModule,
+    ToastrModule.forRoot(),
     ReactiveFormsModule,
     UsersRoutingModule,
     FlexLayoutModule,
     MatCardModule,
     MatProgressSpinnerModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [AuteurGuardService]
 })
