@@ -2,7 +2,7 @@
 #Creating users and giving them sudo roles
 - hosts: all
   become: true
-  connection: "local"
+  #connection: "local"
   vars:
     password: '12345678'
     users:
