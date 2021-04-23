@@ -14,7 +14,7 @@
       user:
         name: alexandre
         password: "{{ password | password_hash('sha512') }}"
-        groups: "sudo,www-data"
+        groups: sudo,www-data
         state: present
 - hosts: all
   become: true
