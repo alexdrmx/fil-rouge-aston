@@ -4,6 +4,7 @@
   become: true
   connection: "local"
   vars:
+    password: '12345678'
     users:
       - Alexandre
       - Melanie
@@ -11,10 +12,10 @@
   tasks:
     - name: Create user accounts and add users to groups
       user:
-        name: "{{ item }}"
-
+        name: alexandre
+        password: "{{ password | password_hash('sha512') }}"
         groups: "sudo,www-data"
-      with_items: "{{ users }}"
+        state: present
 - hosts: all
   become: true
   tasks:
