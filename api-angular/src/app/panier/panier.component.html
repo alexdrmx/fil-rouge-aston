@@ -8,14 +8,14 @@
   </div>
   <div class="centerProduct">
     <h3>{{product.nom}}</h3>
-    <input type="number" name="nombre" value="Quantité...">
   </div>
   <div class="price">
-    <p>{{product.prix}}</p>
-    <p>Total Price</p>
+    <p>{{product.prix}}€</p>
   </div>
   <div class="rightProduct">
-    <img class="imgR" src="../../assets/corbeille.png" href="#" />
+    <button mat-raised-button (click)="deleteItem()">
+        <mat-icon>edit</mat-icon>
+      </button>
   </div>
 </section>
 

@@ -26,22 +26,13 @@ export class UsersService{
       );
   }
 
-  getUser(id: number): Observable<User> {
-    const url = `${this.userUrl}/${id} `;
-    return this.http.get<Observable<{}>>(url)
-      .pipe(
-        tap((rep: any) => console.log(rep)),
-        map(p => User.parse(p.data)),
-      );
-  }
-
     updateUser(user: User, pwd: string): Observable<User> {
     const url = `${this.userUrl}/${user.id} `;
     const formData: FormData = new FormData();
-    formData.append('name', user.nom);
-    formData.append('bio', user.prenom);
-    formData.append('bestScore', user.email);
-    formData.append('email', user.telephone);
+    formData.append('nom', user.nom);
+    formData.append('prenom', user.prenom);
+    formData.append('mail', user.email);
+    formData.append('telephone', user.telephone);
     if (pwd) {
       formData.append('password', pwd);
     }

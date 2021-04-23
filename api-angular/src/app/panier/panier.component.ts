@@ -17,11 +17,15 @@ export class PanierComponent implements OnInit {
   this.loading=true;
     this.service.getProducts().subscribe(products => {
       this.products = products;
-      this.panier = [products[1]];
+      this.panier = this.products;
       console.log(products);
 
       this.loading = false
     });
+  }
+
+  deleteItem(id: number){
+    //this.panier[id-1].pop();
   }
 
 }

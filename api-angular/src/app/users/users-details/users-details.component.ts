@@ -29,7 +29,6 @@ export class UsersDetailsComponent implements OnInit {
       console.log(users);
       this.user = users[this.id-1];
       console.log(this.user);
-      this.user.email = JSON.stringify(this.user.email);
       this.loading = false;
     },
       error => {
