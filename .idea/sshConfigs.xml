@@ -2,7 +2,8 @@
 <project version="4">
   <component name="SshConfigs">
     <configs>
-      <sshConfig authType="PASSWORD" connectionConfig="{&quot;serverAliveInterval&quot;:300}" host="192.168.1.66" id="b6576f3c-c187-4190-83c7-5a668e1fe349" port="22" nameFormat="DESCRIPTIVE" username="axel" />
+      <sshConfig authType="PASSWORD" host="54.39.94.223" id="3702e34c-c2c0-42b0-bf50-e8cea83d1ec2" port="22" nameFormat="DESCRIPTIVE" username="ubuntu" />
+      <sshConfig authType="PASSWORD" host="192.168.1.66" id="4ca9746c-7fdb-4f20-aad3-ce877bf2b467" port="22" nameFormat="DESCRIPTIVE" username="axel" />
     </configs>
   </component>
 </project>

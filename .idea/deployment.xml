@@ -5,7 +5,14 @@
       <paths name="TOVM">
         <serverdata>
           <mappings>
-            <mapping deploy="/home/axel/fil-rouge-aston" local="$PROJECT_DIR$" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="toTestVm">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/ubuntu/fil-rouge-aston" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
