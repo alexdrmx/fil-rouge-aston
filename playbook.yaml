@@ -62,8 +62,8 @@
     pip_install_packages:
       - name: docker
   roles:
-    - geerlingguy.pip
-    - geerlingguy.docker
+    - {role: awx/roles/geerlingguy.pip}
+    - {role: awx/roles/geerlingguy.docker}
 
 - hosts: all
   become: true
@@ -71,5 +71,5 @@
     nodejs_npm_global_packages:
       - name: jslint
   roles:
-    - geerlingguy.nodejs
+    - {role: awx/roles/geerlingguy.nodejs}
 
