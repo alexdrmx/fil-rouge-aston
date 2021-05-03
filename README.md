@@ -1,4 +1,9 @@
 # FIL ROUGE ASTON
+###Présentation du projet
+
+"README" est un site **e-commerce** basé sur la vente de livres.  
+La partie front est développé par l'intermédiaire de *Angular* (TypeScript / HTML / CSS).  
+La partie Back est développée avec *Python Flask*.
 
 ### Execution du script d'installation de la machine
 
