@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="toTestVm" remoteFilesAllowedToDisappearOnAutoupload="false">
+  <component name="PublishConfigData" serverName="REMOTE" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
-      <paths name="TOVM">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="toTestVm">
+      <paths name="REMOTE">
         <serverdata>
           <mappings>
             <mapping deploy="/home/ubuntu/fil-rouge-aston" local="$PROJECT_DIR$" web="/" />

@@ -12,6 +12,7 @@ a2enmod proxy
 a2enmod proxy_http
 a2enmod ssl
 touch /etc/apache2/sites-available/test.conf
+echo "" > /etc/apache2/sites-available/test.conf
 echo "<VirtualHost *:80>" >> /etc/apache2/sites-available/test.conf
 echo "ProxyPass / http://localhost:5000/" >> /etc/apache2/sites-available/test.conf
 echo "ProxyPassReverse / http://localhost:5000/" >> /etc/apache2/sites-available/test.conf
