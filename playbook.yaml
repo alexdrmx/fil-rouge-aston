@@ -55,7 +55,7 @@
         state: latest
         update_cache: yes
 
-Install docker via geerlingguy ansible galaxy templates
+#Install docker via geerlingguy ansible galaxy templates
 - hosts: all
   become: true
   vars:
