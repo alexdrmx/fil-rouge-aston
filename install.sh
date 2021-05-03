@@ -29,8 +29,5 @@ source ./venv/bin/activate
 pip3 install wheel
 pip3 install ansible
 pip3 install flask_cors
-ansible-galaxy install geerlingguy.pip
-ansible-galaxy install geerlingguy.docker
-ansible-galaxy install geerlingguy.nodejs
 ansible-playbook -i inventory playbook.yaml
 npm install -g @angular/cli
