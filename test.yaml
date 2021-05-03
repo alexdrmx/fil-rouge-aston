@@ -1,5 +1,5 @@
 ---
-- hosts: ubuntuvm
+- hosts: ubuntu01
   become: true
   gather_facts: no
   vars:

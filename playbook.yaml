@@ -56,20 +56,20 @@
         update_cache: yes
 
 #Install docker via geerlingguy ansible galaxy templates
-- hosts: all
-  become: true
-  vars:
-    pip_install_packages:
-      - name: docker
-  roles:
-    - geerlingguy.pip
-    - geerlingguy.docker
+#- hosts: all
+#  become: true
+#  vars:
+#    pip_install_packages:
+#      - name: docker
+#  roles:
+#    - geerlingguy.pip
+#    - geerlingguy.docker
 
-- hosts: all
-  become: true
-  vars:
-    nodejs_npm_global_packages:
-      - name: jslint
-  roles:
-    - geerlingguy.nodejs
+#- hosts: all
+#  become: true
+#  vars:
+#    nodejs_npm_global_packages:
+#      - name: jslint
+#  roles:
+#    - geerlingguy.nodejs
 
