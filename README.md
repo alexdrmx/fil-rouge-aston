@@ -14,7 +14,7 @@ chmod +x install.sh
 ````
 Le script installe donc tous les composants essentiels à la mise en marche de l'application.
 
-### Installation d'ELK
+### Installation d'AWX
 ```shell
 cd
 git clone https://github.com/ansible/awx.git
